@@ -1,0 +1,95 @@
+'use client'
+
+import * as React from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { Menu, X } from 'lucide-react'
+import { navigationLinks, ctaLinks } from '@/lib/constants/navigation'
+import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+
+export function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
+  const pathname = usePathname()
+
+  // Close mobile menu when route changes
+  React.useEffect(() => {
+    setMobileMenuOpen(false)
+  }, [pathname])
+
+  return (
+    <header className="sticky top-0 z-50 w-full border-b border-grey-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+      <nav className="container-custom">
+        <div className="flex h-16 items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="flex items-center space-x-2">
+            <span className="font-heading text-h4-mobile font-bold text-primary-900 lg:text-h4">
+              ITM
+            </span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden items-center gap-lg md:flex">
+            {navigationLinks.map(link => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  'text-small font-medium transition-colors hover:text-primary-900',
+                  pathname === link.href ? 'text-primary-900' : 'text-secondary-600'
+                )}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Desktop CTA */}
+          <div className="hidden md:block">
+            <Button asChild>
+              <Link href={ctaLinks.primary.href}>{ctaLinks.primary.label}</Link>
+            </Button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+          >
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6 text-primary-900" />
+            ) : (
+              <Menu className="h-6 w-6 text-primary-900" />
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        {mobileMenuOpen && (
+          <div className="border-t border-grey-200 py-md md:hidden">
+            <div className="flex flex-col gap-sm">
+              {navigationLinks.map(link => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={cn(
+                    'rounded-md px-4 py-2 text-body-mobile font-medium transition-colors',
+                    pathname === link.href
+                      ? 'bg-primary-900/10 text-primary-900'
+                      : 'text-secondary-600 hover:bg-grey-100 hover:text-primary-900'
+                  )}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Button asChild className="mt-sm">
+                <Link href={ctaLinks.primary.href}>{ctaLinks.primary.label}</Link>
+              </Button>
+            </div>
+          </div>
+        )}
+      </nav>
+    </header>
+  )
+}

@@ -1,0 +1,7 @@
+# This file ensures the public directory is tracked by git
+# Add your static assets here:
+# - /images (project photos, logos, og-image.jpg)
+# - /fonts (if using custom fonts)
+# - favicon.ico
+# - robots.txt
+# - sitemap.xml (generated)
