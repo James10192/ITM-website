@@ -10,17 +10,10 @@ const envSchema = z.object({
   // Node Environment
   NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
 
-  // Sanity CMS (REQUIRED)
-  NEXT_PUBLIC_SANITY_PROJECT_ID: z.string().min(1, {
-    message: 'NEXT_PUBLIC_SANITY_PROJECT_ID is required. Get it from https://www.sanity.io/manage',
-  }),
-  NEXT_PUBLIC_SANITY_DATASET: z.string().min(1, {
-    message: 'NEXT_PUBLIC_SANITY_DATASET is required (usually "production")',
-  }),
-  SANITY_API_TOKEN: z.string().min(1, {
-    message:
-      'SANITY_API_TOKEN is required. Create a token with read+write permissions at https://www.sanity.io/manage',
-  }),
+  // Sanity CMS (OPTIONAL - uses mock data if not configured)
+  NEXT_PUBLIC_SANITY_PROJECT_ID: z.string().optional(),
+  NEXT_PUBLIC_SANITY_DATASET: z.string().default('production'),
+  SANITY_API_TOKEN: z.string().optional(),
 
   // Site Configuration
   NEXT_PUBLIC_SITE_URL: z
@@ -30,10 +23,8 @@ const envSchema = z.object({
     })
     .default('http://localhost:3000'),
 
-  // Resend Email API (REQUIRED for contact form)
-  RESEND_API_KEY: z.string().min(1, {
-    message: 'RESEND_API_KEY is required. Get it from https://resend.com/api-keys',
-  }),
+  // Resend Email API (OPTIONAL - contact form will be disabled if not configured)
+  RESEND_API_KEY: z.string().optional(),
 
   // Cloudflare Turnstile (CAPTCHA) - REQUIRED for production
   NEXT_PUBLIC_TURNSTILE_SITE_KEY: z.string().optional(),
