@@ -18,7 +18,7 @@ export function HeroSection() {
   return (
     <div className="relative flex h-screen w-full overflow-hidden bg-black/[0.96] antialiased md:items-center md:justify-center">
       {/* Video Background Layer (z-0) */}
-      <BackgroundVideoHero videos={HERO_VIDEOS} interval={10000} />
+      <BackgroundVideoHero videos={HERO_VIDEOS} interval={7200} />
 
       {/* Grid Overlay with reduced opacity */}
       <div

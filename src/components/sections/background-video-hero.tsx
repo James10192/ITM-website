@@ -10,7 +10,7 @@ interface BackgroundVideoHeroProps {
 
 export function BackgroundVideoHero({
   videos,
-  interval = 10000,
+  interval = 7200,
 }: BackgroundVideoHeroProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
