@@ -11,12 +11,12 @@ const config: Config = {
   	extend: {
   		fontFamily: {
   			sans: [
-  				'var(--font-inter)',
+  				'var(--font-lato)',
   				'sans-serif'
   			],
   			heading: [
-  				'var(--font-poppins)',
-  				'sans-serif'
+  				'var(--font-cinzel)',
+  				'serif'
   			]
   		},
   		fontSize: {

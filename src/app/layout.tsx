@@ -1,22 +1,25 @@
 import type { Metadata } from 'next'
-import { Inter, Poppins } from 'next/font/google'
+import { Cinzel, Lato } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import './globals.css'
 
 // Font Configuration
-const inter = Inter({
+// Lato: Clean, humanist sans-serif for body text (excellent readability)
+const lato = Lato({
   subsets: ['latin'],
-  variable: '--font-inter',
+  weight: ['400', '700'],
+  variable: '--font-lato',
   display: 'swap',
   preload: true,
 })
 
-const poppins = Poppins({
+// Cinzel: Roman-inspired serif for headings (conveys strength & prestige)
+const cinzel = Cinzel({
   subsets: ['latin'],
-  weight: ['400', '600', '700'],
-  variable: '--font-poppins',
+  weight: ['600', '700'],
+  variable: '--font-cinzel',
   display: 'swap',
   preload: true,
 })
@@ -90,7 +93,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fr" className={`${inter.variable} ${poppins.variable}`} suppressHydrationWarning>
+    <html lang="fr" className={`${lato.variable} ${cinzel.variable}`} suppressHydrationWarning>
       <body className="font-sans antialiased">
         <Header />
         {children}
