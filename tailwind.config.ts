@@ -11,12 +11,16 @@ const config: Config = {
   	extend: {
   		fontFamily: {
   			sans: [
-  				'var(--font-lato)',
+  				'var(--font-amaranth)',
   				'sans-serif'
   			],
   			heading: [
-  				'var(--font-cinzel)',
-  				'serif'
+  				'var(--font-changa-one)',
+  				'sans-serif'
+  			],
+  			hero: [
+  				'var(--font-orbitron)',
+  				'sans-serif'
   			]
   		},
   		fontSize: {

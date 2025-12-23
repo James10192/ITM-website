@@ -1,25 +1,34 @@
 import type { Metadata } from 'next'
-import { Cinzel, Lato } from 'next/font/google'
+import { Orbitron, Changa_One, Amaranth } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import './globals.css'
 
 // Font Configuration
-// Lato: Clean, humanist sans-serif for body text (excellent readability)
-const lato = Lato({
+// Amaranth: Elegant sans-serif for body text (readable, friendly)
+const amaranth = Amaranth({
   subsets: ['latin'],
   weight: ['400', '700'],
-  variable: '--font-lato',
+  variable: '--font-amaranth',
   display: 'swap',
   preload: true,
 })
 
-// Cinzel: Roman-inspired serif for headings (conveys strength & prestige)
-const cinzel = Cinzel({
+// Changa One: Bold display font for section headings (h2, h3, h4)
+const changaOne = Changa_One({
   subsets: ['latin'],
-  weight: ['600', '700'],
-  variable: '--font-cinzel',
+  weight: ['400'],
+  variable: '--font-changa-one',
+  display: 'swap',
+  preload: true,
+})
+
+// Orbitron: Futuristic tech font for hero title (main h1)
+const orbitron = Orbitron({
+  subsets: ['latin'],
+  weight: ['600', '700', '800', '900'],
+  variable: '--font-orbitron',
   display: 'swap',
   preload: true,
 })
@@ -93,7 +102,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fr" className={`${lato.variable} ${cinzel.variable}`} suppressHydrationWarning>
+    <html lang="fr" className={`${amaranth.variable} ${changaOne.variable} ${orbitron.variable}`} suppressHydrationWarning>
       <body className="font-sans antialiased">
         <Header />
         {children}

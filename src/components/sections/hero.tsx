@@ -33,7 +33,7 @@ export function HeroSection() {
 
       {/* Hero Content */}
       <div className="relative z-10 mx-auto w-full max-w-7xl p-4 pt-20 md:pt-0">
-        <h1 className="bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text text-center font-heading text-hero-mobile font-bold text-transparent md:text-hero">
+        <h1 className="bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text text-center font-hero text-hero-mobile font-bold text-transparent md:text-hero">
           Construire en métal, <br /> investir dans la durabilité.
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-center text-body font-normal text-neutral-300">
