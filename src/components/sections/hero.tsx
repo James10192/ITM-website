@@ -6,19 +6,29 @@ import { cn } from '@/lib/utils'
 import { Spotlight } from '@/components/ui/spotlight'
 import { Button } from '@/components/ui/button'
 import { ctaLinks } from '@/lib/constants/navigation'
+import { BackgroundVideoHero } from './background-video-hero'
+
+const HERO_VIDEOS = [
+  '/videos/hero/hero-bg-1.mp4',
+  '/videos/hero/hero-bg-2.mp4',
+  '/videos/hero/hero-bg-3.mp4',
+]
 
 export function HeroSection() {
   return (
     <div className="relative flex h-screen w-full overflow-hidden bg-black/[0.96] antialiased md:items-center md:justify-center">
-      {/* Grid Background */}
+      {/* Video Background Layer (z-0) */}
+      <BackgroundVideoHero videos={HERO_VIDEOS} interval={10000} />
+
+      {/* Grid Overlay with reduced opacity */}
       <div
         className={cn(
-          'pointer-events-none absolute inset-0 select-none [background-size:40px_40px]',
+          'pointer-events-none absolute inset-0 select-none opacity-20 [background-size:40px_40px]',
           '[background-image:linear-gradient(to_right,#171717_1px,transparent_1px),linear-gradient(to_bottom,#171717_1px,transparent_1px)]',
         )}
       />
 
-      {/* Spotlight Effect */}
+      {/* Spotlight Effect (z-1) */}
       <Spotlight className="-top-40 left-0 md:-top-20 md:left-60" fill="white" />
 
       {/* Hero Content */}
