@@ -32,10 +32,15 @@ export function Header() {
     setIsMobileMenuOpen(false)
   }, [pathname])
 
-  // Custom ITM Logo component
-  const ITMLogo = () => (
+  // Custom ITM Logo component with dynamic colors
+  const ITMLogo = ({ visible }: { visible?: boolean }) => (
     <Link href="/" className="relative z-20 flex items-center space-x-2 px-2 py-1">
-      <span className="font-heading text-h4 font-bold text-primary-900 dark:text-white">
+      <span
+        className={cn(
+          'font-heading text-h4 font-bold transition-colors duration-300',
+          visible ? 'text-primary-900' : 'text-white'
+        )}
+      >
         ITM
       </span>
     </Link>
@@ -45,75 +50,98 @@ export function Header() {
     <Navbar className="top-0">
       {/* Desktop Navigation */}
       <NavBody>
-        <ITMLogo />
+        {({ visible }) => (
+          <>
+            <ITMLogo visible={visible} />
 
-        {/* Navigation Items with Active State */}
-        <div
-          onMouseLeave={() => setHovered(null)}
-          className="absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium lg:flex lg:space-x-2"
-        >
-          {navItems.map((item, idx) => (
-            <Link
-              key={`nav-${idx}`}
-              href={item.link}
-              onMouseEnter={() => setHovered(idx)}
-              className={cn(
-                'relative px-4 py-2 transition-colors',
-                pathname === item.link
-                  ? 'text-primary-900 dark:text-white'
-                  : 'text-secondary-600 dark:text-neutral-300 hover:text-primary-900'
-              )}
+            {/* Navigation Items with Active State */}
+            <div
+              onMouseLeave={() => setHovered(null)}
+              className="absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-1 text-sm font-medium lg:flex xl:space-x-2"
             >
-              {hovered === idx && (
-                <motion.div
-                  layoutId="hovered"
-                  className="absolute inset-0 h-full w-full rounded-full bg-gray-100 dark:bg-neutral-800"
-                />
-              )}
-              <span className="relative z-20">{item.name}</span>
-            </Link>
-          ))}
-        </div>
+              {navItems.map((item, idx) => (
+                <Link
+                  key={`nav-${idx}`}
+                  href={item.link}
+                  onMouseEnter={() => setHovered(idx)}
+                  className={cn(
+                    'relative px-3 py-2 transition-colors duration-300 xl:px-4',
+                    pathname === item.link
+                      ? visible
+                        ? 'text-primary-900'
+                        : 'text-white'
+                      : visible
+                        ? 'text-secondary-600 hover:text-primary-900'
+                        : 'text-grey-200 hover:text-white'
+                  )}
+                >
+                  {hovered === idx && (
+                    <motion.div
+                      layoutId="hovered"
+                      className={cn(
+                        'absolute inset-0 h-full w-full rounded-full transition-colors',
+                        visible ? 'bg-gray-100' : 'bg-white/10'
+                      )}
+                    />
+                  )}
+                  <span className="relative z-20">{item.name}</span>
+                </Link>
+              ))}
+            </div>
 
-        <div className="flex items-center gap-4">
-          <Button asChild>
-            <Link href={ctaLinks.primary.href}>{ctaLinks.primary.label}</Link>
-          </Button>
-        </div>
+            <div className="flex items-center gap-2">
+              <Button
+                asChild
+                variant={visible ? 'default' : 'secondary'}
+                className={cn(
+                  'transition-all duration-300',
+                  !visible && 'border-white bg-white text-primary-900 hover:bg-white/90'
+                )}
+              >
+                <Link href={ctaLinks.primary.href}>{ctaLinks.primary.label}</Link>
+              </Button>
+            </div>
+          </>
+        )}
       </NavBody>
 
       {/* Mobile Navigation */}
       <MobileNav>
-        <MobileNavHeader>
-          <ITMLogo />
-          <MobileNavToggle
-            isOpen={isMobileMenuOpen}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          />
-        </MobileNavHeader>
-        <MobileNavMenu
-          isOpen={isMobileMenuOpen}
-          onClose={() => setIsMobileMenuOpen(false)}
-        >
-          {navigationLinks.map((link, idx) => (
-            <Link
-              key={`mobile-nav-${idx}`}
-              href={link.href}
-              className={cn(
-                'w-full rounded-md px-4 py-2 text-left text-sm font-medium transition-colors',
-                pathname === link.href
-                  ? 'bg-primary-900/10 text-primary-900 dark:bg-white/10 dark:text-white'
-                  : 'text-secondary-600 hover:bg-grey-100 hover:text-primary-900 dark:text-neutral-300 dark:hover:bg-neutral-800',
-              )}
-              onClick={() => setIsMobileMenuOpen(false)}
+        {({ visible }) => (
+          <>
+            <MobileNavHeader>
+              <ITMLogo visible={visible} />
+              <MobileNavToggle
+                isOpen={isMobileMenuOpen}
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                visible={visible}
+              />
+            </MobileNavHeader>
+            <MobileNavMenu
+              isOpen={isMobileMenuOpen}
+              onClose={() => setIsMobileMenuOpen(false)}
             >
-              {link.label}
-            </Link>
-          ))}
-          <Button asChild className="mt-4 w-full">
-            <Link href={ctaLinks.primary.href}>{ctaLinks.primary.label}</Link>
-          </Button>
-        </MobileNavMenu>
+              {navigationLinks.map((link, idx) => (
+                <Link
+                  key={`mobile-nav-${idx}`}
+                  href={link.href}
+                  className={cn(
+                    'w-full rounded-md px-4 py-2 text-left text-sm font-medium transition-colors',
+                    pathname === link.href
+                      ? 'bg-primary-900/10 text-primary-900'
+                      : 'text-secondary-600 hover:bg-grey-100 hover:text-primary-900'
+                  )}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Button asChild className="mt-4 w-full">
+                <Link href={ctaLinks.primary.href}>{ctaLinks.primary.label}</Link>
+              </Button>
+            </MobileNavMenu>
+          </>
+        )}
       </MobileNav>
     </Navbar>
   )

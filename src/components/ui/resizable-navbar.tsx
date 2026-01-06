@@ -17,7 +17,7 @@ interface NavbarProps {
 }
 
 interface NavBodyProps {
-  children: React.ReactNode;
+  children: React.ReactNode | ((props: { visible?: boolean }) => React.ReactNode);
   className?: string;
   visible?: boolean;
 }
@@ -32,7 +32,7 @@ interface NavItemsProps {
 }
 
 interface MobileNavProps {
-  children: React.ReactNode;
+  children: React.ReactNode | ((props: { visible?: boolean }) => React.ReactNode);
   className?: string;
   visible?: boolean;
 }
@@ -107,7 +107,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         className,
       )}
     >
-      {children}
+      {typeof children === 'function' ? children({ visible }) : children}
     </motion.div>
   );
 };
@@ -169,7 +169,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         className,
       )}
     >
-      {children}
+      {typeof children === 'function' ? children({ visible }) : children}
     </motion.div>
   );
 };
@@ -218,14 +218,21 @@ export const MobileNavMenu = ({
 export const MobileNavToggle = ({
   isOpen,
   onClick,
+  visible,
 }: {
   isOpen: boolean;
   onClick: () => void;
+  visible?: boolean;
 }) => {
+  const iconClass = cn(
+    "cursor-pointer transition-colors duration-300",
+    visible ? "text-black" : "text-white"
+  );
+
   return isOpen ? (
-    <IconX className="text-black dark:text-white" onClick={onClick} />
+    <IconX className={iconClass} onClick={onClick} />
   ) : (
-    <IconMenu2 className="text-black dark:text-white" onClick={onClick} />
+    <IconMenu2 className={iconClass} onClick={onClick} />
   );
 };
 
