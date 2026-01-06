@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
@@ -32,17 +33,17 @@ export function Header() {
     setIsMobileMenuOpen(false)
   }, [pathname])
 
-  // Custom ITM Logo component with dynamic colors
+  // Custom ITM Logo component
   const ITMLogo = ({ visible }: { visible?: boolean }) => (
-    <Link href="/" className="relative z-20 flex items-center space-x-2 px-2 py-1">
-      <span
-        className={cn(
-          'font-heading text-h4 font-bold transition-colors duration-300',
-          visible ? 'text-primary-900' : 'text-white'
-        )}
-      >
-        ITM
-      </span>
+    <Link href="/" className="relative z-20 flex items-center px-2 py-1">
+      <Image
+        src="/images/logo.png"
+        alt="ITM Construction Métallique"
+        width={80}
+        height={40}
+        className="h-10 w-auto transition-opacity duration-300 hover:opacity-80"
+        priority
+      />
     </Link>
   )
 

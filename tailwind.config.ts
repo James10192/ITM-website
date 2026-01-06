@@ -21,6 +21,10 @@ const config: Config = {
   			hero: [
   				'var(--font-orbitron)',
   				'sans-serif'
+  			],
+  			raleway: [
+  				'var(--font-raleway)',
+  				'sans-serif'
   			]
   		},
   		fontSize: {

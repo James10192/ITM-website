@@ -36,7 +36,7 @@ export function HeroSection() {
         <h1 className="text-metallic text-center font-hero text-hero-mobile font-bold md:text-hero">
           Construire en métal, <br /> investir dans la durabilité.
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-center text-body font-normal text-neutral-300">
+        <p className="mx-auto mt-4 max-w-2xl text-center font-raleway text-body font-normal text-neutral-300">
           Constructions métalliques sur mesure : maisons déplaçables, portes,
           palissades et mobiliers conçus pour durer.
         </p>

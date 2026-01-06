@@ -33,15 +33,6 @@ export function PageHeader() {
             </li>
             <IconChevronRight className="h-4 w-4 text-accent-500" />
             <li>
-              <Link
-                href="/solutions"
-                className="text-grey-200 transition-colors hover:text-white"
-              >
-                Solutions
-              </Link>
-            </li>
-            <IconChevronRight className="h-4 w-4 text-accent-500" />
-            <li>
               <span className="font-semibold text-white">IBAK HOME</span>
             </li>
           </ol>

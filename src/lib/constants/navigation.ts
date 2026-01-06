@@ -16,11 +16,6 @@ export const navigationLinks: NavLink[] = [
     description: 'Page d\'accueil',
   },
   {
-    label: 'Solutions',
-    href: '/solutions',
-    description: 'Nos solutions de construction métallique',
-  },
-  {
     label: 'IBAK HOME',
     href: '/ibak-home',
     description: 'Maisons métalliques déplaçables',

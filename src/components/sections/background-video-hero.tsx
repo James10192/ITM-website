@@ -57,7 +57,7 @@ export function BackgroundVideoHero({
       </AnimatePresence>
 
       {/* Dark overlay to darken videos */}
-      <div className="absolute inset-0 bg-black/85" />
+      <div className="absolute inset-0 bg-black/90" />
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Orbitron, Changa_One, Amaranth } from 'next/font/google'
+import { Orbitron, Changa_One, Amaranth, Raleway } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
@@ -29,6 +29,15 @@ const orbitron = Orbitron({
   subsets: ['latin'],
   weight: ['600', '700', '800', '900'],
   variable: '--font-orbitron',
+  display: 'swap',
+  preload: true,
+})
+
+// Raleway: Modern sans-serif for hero subtitle
+const raleway = Raleway({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  variable: '--font-raleway',
   display: 'swap',
   preload: true,
 })
@@ -102,7 +111,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fr" className={`${amaranth.variable} ${changaOne.variable} ${orbitron.variable}`} suppressHydrationWarning>
+    <html lang="fr" className={`${amaranth.variable} ${changaOne.variable} ${orbitron.variable} ${raleway.variable}`} suppressHydrationWarning>
       <body className="font-sans antialiased">
         <Header />
         {children}
