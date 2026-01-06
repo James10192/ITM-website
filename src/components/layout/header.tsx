@@ -37,7 +37,7 @@ export function Header() {
   const ITMLogo = () => (
     <Link href="/" className="relative z-20 flex items-center px-2 py-1">
       <Image
-        src="/images/logo.png"
+        src="/images/logo.jpeg"
         alt="ITM Construction Métallique"
         width={80}
         height={40}
