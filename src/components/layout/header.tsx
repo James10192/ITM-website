@@ -34,7 +34,7 @@ export function Header() {
   }, [pathname])
 
   // Custom ITM Logo component
-  const ITMLogo = ({ visible }: { visible?: boolean }) => (
+  const ITMLogo = () => (
     <Link href="/" className="relative z-20 flex items-center px-2 py-1">
       <Image
         src="/images/logo.png"
@@ -53,7 +53,7 @@ export function Header() {
       <NavBody>
         {({ visible }) => (
           <>
-            <ITMLogo visible={visible} />
+            <ITMLogo />
 
             {/* Navigation Items with Active State */}
             <div
@@ -111,7 +111,7 @@ export function Header() {
         {({ visible }) => (
           <>
             <MobileNavHeader>
-              <ITMLogo visible={visible} />
+              <ITMLogo />
               <MobileNavToggle
                 isOpen={isMobileMenuOpen}
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

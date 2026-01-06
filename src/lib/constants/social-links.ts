@@ -13,9 +13,9 @@ export interface SocialLink {
 export const socialLinks: SocialLink[] = [
   {
     name: 'Facebook',
-    url: 'https://www.facebook.com/profile.php?id=61559337628848',
+    url: 'https://www.facebook.com/profile.php?id=100028848442967',
     icon: 'Facebook',
-    label: 'Suivez-nous sur Facebook',
+    label: 'Suivez-nous sur Facebook - ITM',
   },
   {
     name: 'WhatsApp',
