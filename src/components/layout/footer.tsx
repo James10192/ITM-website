@@ -97,7 +97,20 @@ export function Footer() {
       <div className="border-t border-primary-700">
         <div className="container-custom py-md">
           <div className="flex flex-col items-center justify-between gap-sm text-small text-grey-100 sm:flex-row">
-            <p>© {currentYear} ITM Construction Métallique. Tous droits réservés.</p>
+            <div className="text-center sm:text-left">
+              <p>© {currentYear} ITM Construction Métallique. Tous droits réservés.</p>
+              <p className="mt-1 text-xs">
+                Développé par{' '}
+                <a
+                  href="https://www.africandigitconsulting.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent-500 transition-colors hover:text-white"
+                >
+                  African Digit Consulting
+                </a>
+              </p>
+            </div>
             <div className="flex gap-md">
               <Link href="/mentions-legales" className="transition-colors hover:text-white">
                 Mentions légales

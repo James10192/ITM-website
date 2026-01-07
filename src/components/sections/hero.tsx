@@ -1,11 +1,10 @@
 'use client'
 
 import React from 'react'
-import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { Spotlight } from '@/components/ui/spotlight'
 import { Button } from '@/components/ui/button'
-import { ctaLinks } from '@/lib/constants/navigation'
+import { ContactModal } from './contact-modal'
 import { BackgroundVideoHero } from './background-video-hero'
 
 const HERO_VIDEOS = [
@@ -24,7 +23,7 @@ export function HeroSection() {
       <div
         className={cn(
           'pointer-events-none absolute inset-0 select-none opacity-20 [background-size:40px_40px]',
-          '[background-image:linear-gradient(to_right,#171717_1px,transparent_1px),linear-gradient(to_bottom,#171717_1px,transparent_1px)]',
+          '[background-image:linear-gradient(to_right,#171717_1px,transparent_1px),linear-gradient(to_bottom,#171717_1px,transparent_1px)]'
         )}
       />
 
@@ -37,15 +36,17 @@ export function HeroSection() {
           Construire en métal, <br /> investir dans la durabilité.
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-center font-raleway text-body font-normal text-neutral-300">
-          Constructions métalliques sur mesure : maisons déplaçables, portes,
-          palissades et mobiliers conçus pour durer.
+          Constructions métalliques sur mesure : maisons déplaçables, portes, palissades et
+          mobiliers conçus pour durer.
         </p>
 
         {/* CTA Button */}
         <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Button asChild size="lg" className="w-full sm:w-auto">
-            <Link href={ctaLinks.primary.href}>Demander un devis personnalisé</Link>
-          </Button>
+          <ContactModal>
+            <Button size="lg" className="w-full sm:w-auto">
+              Demander un devis personnalisé
+            </Button>
+          </ContactModal>
         </div>
       </div>
     </div>

@@ -1,5 +1,7 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
-import Link from 'next/link'
+import { ContactModal } from '@/components/sections/contact-modal'
 
 export function CtaSection() {
   return (
@@ -13,9 +15,12 @@ export function CtaSection() {
             Notre équipe d&apos;experts vous accompagne de la conception à la livraison. Parlons de
             votre projet dès aujourd&apos;hui.
           </p>
-          <Button asChild size="lg">
-            <Link href="/contact?project=maison">Parler à un expert</Link>
-          </Button>
+          <ContactModal
+            title="Parler à un expert IBAK HOME"
+            description="Remplissez ce formulaire et notre équipe vous contactera pour discuter de votre projet de maison métallique."
+          >
+            <Button size="lg">Parler à un expert</Button>
+          </ContactModal>
         </div>
       </div>
     </section>
