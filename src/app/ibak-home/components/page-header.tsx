@@ -1,19 +1,32 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { IconChevronRight } from '@tabler/icons-react'
+import { IBAK_HOME_IMAGES } from '@/lib/constants/ibak-home'
+import styles from './page-header.module.css'
 
 export function PageHeader() {
+  const slideDurationSeconds = 4
+  const totalDurationSeconds = IBAK_HOME_IMAGES.length * slideDurationSeconds
+
   return (
     <section className="relative bg-primary-900 py-xl md:py-2xl">
-      {/* Background image avec overlay */}
+      {/* Background carousel avec overlay */}
       <div className="absolute inset-0">
-        <Image
-          src="/images/benefits/resistance.jpg"
-          alt=""
-          fill
-          className="object-cover opacity-10"
-          priority
-        />
+        {IBAK_HOME_IMAGES.map((image, index) => (
+          <Image
+            key={image.src}
+            src={image.src}
+            alt=""
+            fill
+            className={`${styles.heroSlide} object-cover opacity-90`}
+            priority={index === 0}
+            sizes="100vw"
+            style={{
+              animationDelay: `${index * slideDurationSeconds}s`,
+              animationDuration: `${totalDurationSeconds}s`,
+            }}
+          />
+        ))}
       </div>
 
       {/* Gradient overlay pour plus de profondeur */}

@@ -8,6 +8,26 @@ export interface IbakBenefit {
   description: string
 }
 
+export interface IbakHomeImage {
+  src: string
+  alt: string
+}
+
+export const IBAK_HOME_IMAGES: IbakHomeImage[] = [
+  { src: '/images/ibak-home/30924.jpg', alt: 'Maison métallique IBAK HOME, vue 1' },
+  { src: '/images/ibak-home/30925.jpg', alt: 'Maison métallique IBAK HOME, vue 2' },
+  { src: '/images/ibak-home/30928.jpg', alt: 'Maison métallique IBAK HOME, vue 3' },
+  { src: '/images/ibak-home/30929.jpg', alt: 'Maison métallique IBAK HOME, vue 4' },
+  { src: '/images/ibak-home/30930.jpg', alt: 'Maison métallique IBAK HOME, vue 5' },
+  { src: '/images/ibak-home/30935.jpg', alt: 'Maison métallique IBAK HOME, vue 6' },
+  { src: '/images/ibak-home/30936.jpg', alt: 'Maison métallique IBAK HOME, vue 7' },
+  { src: '/images/ibak-home/30937.jpg', alt: 'Maison métallique IBAK HOME, vue 8' },
+  { src: '/images/ibak-home/30938.jpg', alt: 'Maison métallique IBAK HOME, vue 9' },
+  { src: '/images/ibak-home/30939.jpg', alt: 'Maison métallique IBAK HOME, vue 10' },
+  { src: '/images/ibak-home/change.jpg', alt: 'Maison métallique IBAK HOME, détail extérieur' },
+  { src: '/images/ibak-home/csss.jpg', alt: 'Maison métallique IBAK HOME, détail intérieur' },
+]
+
 export const IBAK_BENEFITS: IbakBenefit[] = [
   {
     id: 'construction-rapide',

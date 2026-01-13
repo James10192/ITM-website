@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { PageHeader } from './components/page-header'
 import { BenefitsGrid } from './components/benefits-grid'
 import { CtaSection } from './components/cta-section'
+import { PhotoGallery } from './components/photo-gallery'
 
 // ISR: Revalidate every 60 seconds (optional, content rarely changes)
 export const revalidate = 60
@@ -82,6 +83,7 @@ export default function IbakHomePage() {
       <PageHeader />
       <BenefitsGrid />
       <CtaSection />
+      <PhotoGallery />
     </>
   )
 }
