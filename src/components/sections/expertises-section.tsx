@@ -20,10 +20,10 @@ export function ExpertisesSection() {
         {/* Expertises Grid */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {EXPERTISES.map(expertise => (
-            <Link key={expertise.id} href={expertise.href} className="group">
-              <article className="overflow-hidden rounded-2xl border border-grey-200 bg-white transition-all hover:shadow-lg">
+            <Link key={expertise.id} href={expertise.href} className="group flex">
+              <article className="flex w-full flex-col overflow-hidden rounded-2xl border border-grey-200 bg-white transition-all hover:shadow-lg">
                 {/* Image */}
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-56 flex-shrink-0 overflow-hidden">
                   <Image
                     src={expertise.image}
                     alt={expertise.title}
@@ -33,11 +33,11 @@ export function ExpertisesSection() {
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
+                <div className="flex flex-1 flex-col p-6">
                   <h3 className="mb-3 font-heading text-xl font-semibold text-primary-900">
                     {expertise.title}
                   </h3>
-                  <p className="mb-4 text-sm leading-relaxed text-secondary-600">
+                  <p className="mb-4 flex-1 text-sm leading-relaxed text-secondary-600">
                     {expertise.description}
                   </p>
 

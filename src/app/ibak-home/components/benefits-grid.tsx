@@ -28,20 +28,22 @@ export function BenefitsGrid() {
         </div>
 
         {/* Bento Grid Layout */}
-        <div className="grid auto-rows-[240px] grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
           {/* Featured card - spans 2 columns */}
           {benefits[0] && (
-            <div className="group relative overflow-hidden rounded-2xl border border-grey-200 bg-white p-8 shadow-sm transition-all hover:shadow-xl lg:col-span-2">
-              <div className="mb-6">
+            <div className="group relative flex min-h-[280px] flex-col overflow-hidden rounded-2xl border border-grey-200 bg-white p-6 shadow-sm transition-all hover:shadow-xl md:p-8 lg:col-span-2">
+              <div className="mb-4">
                 {(() => {
                   const Icon = benefits[0].icon
-                  return <Icon className="h-12 w-12 text-primary-900" stroke={1.5} />
+                  return (
+                    <Icon className="h-10 w-10 text-primary-900 md:h-12 md:w-12" stroke={1.5} />
+                  )
                 })()}
               </div>
-              <h3 className="mb-3 font-heading text-2xl font-semibold text-primary-900">
+              <h3 className="mb-3 font-heading text-xl font-semibold text-primary-900 md:text-2xl">
                 {benefits[0].title}
               </h3>
-              <p className="text-base leading-relaxed text-secondary-600">
+              <p className="text-sm leading-relaxed text-secondary-600 md:text-base">
                 {benefits[0].description}
               </p>
               <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-accent-500/5" />
@@ -50,14 +52,14 @@ export function BenefitsGrid() {
 
           {/* Regular card */}
           {benefits[1] && (
-            <div className="group relative overflow-hidden rounded-2xl border border-grey-200 bg-white p-8 shadow-sm transition-all hover:shadow-xl lg:col-span-1">
-              <div className="mb-6">
+            <div className="group relative flex min-h-[280px] flex-col overflow-hidden rounded-2xl border border-grey-200 bg-white p-6 shadow-sm transition-all hover:shadow-xl md:p-8 lg:col-span-1">
+              <div className="mb-4">
                 {(() => {
                   const Icon = benefits[1].icon
-                  return <Icon className="h-10 w-10 text-primary-900" stroke={1.5} />
+                  return <Icon className="h-8 w-8 text-primary-900 md:h-10 md:w-10" stroke={1.5} />
                 })()}
               </div>
-              <h3 className="mb-3 font-heading text-xl font-semibold text-primary-900">
+              <h3 className="mb-3 font-heading text-lg font-semibold text-primary-900 md:text-xl">
                 {benefits[1].title}
               </h3>
               <p className="text-sm leading-relaxed text-secondary-600">
@@ -68,29 +70,33 @@ export function BenefitsGrid() {
 
           {/* Tall card - spans 2 rows */}
           {benefits[2] && (
-            <div className="group relative overflow-hidden rounded-2xl border border-grey-200 bg-gradient-to-br from-primary-900 to-primary-800 p-8 text-white shadow-sm transition-all hover:shadow-xl lg:row-span-2">
-              <div className="mb-6">
+            <div className="group relative flex min-h-[280px] flex-col overflow-hidden rounded-2xl border border-grey-200 bg-gradient-to-br from-primary-900 to-primary-800 p-6 text-white shadow-sm transition-all hover:shadow-xl md:p-8 lg:row-span-2 lg:min-h-[580px]">
+              <div className="mb-4">
                 {(() => {
                   const Icon = benefits[2].icon
-                  return <Icon className="h-12 w-12 text-accent-500" stroke={1.5} />
+                  return <Icon className="h-10 w-10 text-accent-500 md:h-12 md:w-12" stroke={1.5} />
                 })()}
               </div>
-              <h3 className="mb-3 font-heading text-2xl font-semibold">{benefits[2].title}</h3>
-              <p className="text-base leading-relaxed text-grey-200">{benefits[2].description}</p>
+              <h3 className="mb-3 font-heading text-xl font-semibold md:text-2xl">
+                {benefits[2].title}
+              </h3>
+              <p className="text-sm leading-relaxed text-grey-200 md:text-base">
+                {benefits[2].description}
+              </p>
               <div className="absolute -bottom-12 -right-12 h-48 w-48 rounded-full bg-white/10" />
             </div>
           )}
 
           {/* Regular card */}
           {benefits[3] && (
-            <div className="group relative overflow-hidden rounded-2xl border border-grey-200 bg-white p-8 shadow-sm transition-all hover:shadow-xl lg:col-span-1">
-              <div className="mb-6">
+            <div className="group relative flex min-h-[280px] flex-col overflow-hidden rounded-2xl border border-grey-200 bg-white p-6 shadow-sm transition-all hover:shadow-xl md:p-8 lg:col-span-1">
+              <div className="mb-4">
                 {(() => {
                   const Icon = benefits[3].icon
-                  return <Icon className="h-10 w-10 text-primary-900" stroke={1.5} />
+                  return <Icon className="h-8 w-8 text-primary-900 md:h-10 md:w-10" stroke={1.5} />
                 })()}
               </div>
-              <h3 className="mb-3 font-heading text-xl font-semibold text-primary-900">
+              <h3 className="mb-3 font-heading text-lg font-semibold text-primary-900 md:text-xl">
                 {benefits[3].title}
               </h3>
               <p className="text-sm leading-relaxed text-secondary-600">
@@ -101,17 +107,17 @@ export function BenefitsGrid() {
 
           {/* Wide card - spans 2 columns */}
           {benefits[4] && (
-            <div className="group relative overflow-hidden rounded-2xl border border-grey-200 bg-white p-8 shadow-sm transition-all hover:shadow-xl lg:col-span-2">
-              <div className="mb-6">
+            <div className="group relative flex min-h-[280px] flex-col overflow-hidden rounded-2xl border border-grey-200 bg-white p-6 shadow-sm transition-all hover:shadow-xl md:p-8 lg:col-span-2">
+              <div className="mb-4">
                 {(() => {
                   const Icon = benefits[4].icon
-                  return <Icon className="h-10 w-10 text-primary-900" stroke={1.5} />
+                  return <Icon className="h-8 w-8 text-primary-900 md:h-10 md:w-10" stroke={1.5} />
                 })()}
               </div>
-              <h3 className="mb-3 font-heading text-xl font-semibold text-primary-900">
+              <h3 className="mb-3 font-heading text-lg font-semibold text-primary-900 md:text-xl">
                 {benefits[4].title}
               </h3>
-              <p className="text-base leading-relaxed text-secondary-600">
+              <p className="text-sm leading-relaxed text-secondary-600 md:text-base">
                 {benefits[4].description}
               </p>
             </div>

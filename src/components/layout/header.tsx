@@ -8,6 +8,7 @@ import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { navigationLinks, ctaLinks } from '@/lib/constants/navigation'
 import { Button } from '@/components/ui/button'
+import { ContactModal } from '@/components/sections/contact-modal'
 import {
   Navbar,
   NavBody,
@@ -23,7 +24,7 @@ export function Header() {
   const [hovered, setHovered] = React.useState<number | null>(null)
 
   // Map navigation links to Aceternity format
-  const navItems = navigationLinks.map((link) => ({
+  const navItems = navigationLinks.map(link => ({
     name: link.label,
     link: link.href,
   }))
@@ -91,16 +92,17 @@ export function Header() {
             </div>
 
             <div className="flex items-center gap-2">
-              <Button
-                asChild
-                variant={visible ? 'default' : 'secondary'}
-                className={cn(
-                  'transition-all duration-300',
-                  !visible && 'border-white bg-white text-primary-900 hover:bg-white/90'
-                )}
-              >
-                <Link href={ctaLinks.primary.href}>{ctaLinks.primary.label}</Link>
-              </Button>
+              <ContactModal>
+                <Button
+                  variant={visible ? 'default' : 'secondary'}
+                  className={cn(
+                    'cursor-pointer transition-all duration-300',
+                    !visible && 'border-white bg-white text-primary-900 hover:bg-white/90'
+                  )}
+                >
+                  {ctaLinks.primary.label}
+                </Button>
+              </ContactModal>
             </div>
           </>
         )}
@@ -118,10 +120,7 @@ export function Header() {
                 visible={visible}
               />
             </MobileNavHeader>
-            <MobileNavMenu
-              isOpen={isMobileMenuOpen}
-              onClose={() => setIsMobileMenuOpen(false)}
-            >
+            <MobileNavMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)}>
               {navigationLinks.map((link, idx) => (
                 <Link
                   key={`mobile-nav-${idx}`}
@@ -137,9 +136,9 @@ export function Header() {
                   {link.label}
                 </Link>
               ))}
-              <Button asChild className="mt-4 w-full">
-                <Link href={ctaLinks.primary.href}>{ctaLinks.primary.label}</Link>
-              </Button>
+              <ContactModal>
+                <Button className="mt-4 w-full cursor-pointer">{ctaLinks.primary.label}</Button>
+              </ContactModal>
             </MobileNavMenu>
           </>
         )}
