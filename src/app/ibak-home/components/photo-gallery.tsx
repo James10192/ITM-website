@@ -21,7 +21,7 @@ export function PhotoGallery() {
           <p className="mb-sm text-small font-semibold uppercase tracking-[0.2em] text-accent-500">
             Galerie IBAK HOME
           </p>
-          <h2 className="text-section-mobile font-heading font-bold text-primary-900 md:text-section">
+          <h2 className="font-heading text-section-mobile font-bold text-primary-900 md:text-section">
             Explorez nos maisons en image
           </h2>
           <p className="mt-sm text-body-mobile text-secondary-600 md:text-body">
@@ -32,16 +32,16 @@ export function PhotoGallery() {
         <button
           type="button"
           onClick={() => setActiveIndex(0)}
-          className="group relative aspect-[4/3] w-full max-w-4xl focus-visible-ring"
+          className="focus-visible-ring group relative mx-auto aspect-[4/3] w-full max-w-3xl"
           aria-label="Ouvrir la galerie en grand"
         >
           <div
-            className="absolute inset-0 translate-x-3 translate-y-3 rotate-2 rounded-2xl bg-cover bg-center opacity-60 shadow-lg"
+            className="absolute inset-0 translate-x-2 translate-y-2 rotate-2 rounded-2xl bg-cover bg-center opacity-60 shadow-lg"
             style={{ backgroundImage: `url(${IBAK_HOME_IMAGES[2]?.src ?? firstImage.src})` }}
             aria-hidden="true"
           />
           <div
-            className="absolute inset-0 -translate-x-3 translate-y-2 -rotate-2 rounded-2xl bg-cover bg-center opacity-75 shadow-lg"
+            className="absolute inset-0 -translate-x-2 translate-y-1.5 -rotate-2 rounded-2xl bg-cover bg-center opacity-75 shadow-lg"
             style={{ backgroundImage: `url(${IBAK_HOME_IMAGES[1]?.src ?? firstImage.src})` }}
             aria-hidden="true"
           />
@@ -59,21 +59,21 @@ export function PhotoGallery() {
 
       <Dialog
         open={activeIndex !== null}
-        onOpenChange={(open) => {
+        onOpenChange={open => {
           if (!open) {
             setActiveIndex(null)
           }
         }}
       >
-        <DialogContent className="max-w-5xl border-0 bg-primary-900/95 p-3 shadow-2xl sm:p-4">
+        <DialogContent className="max-h-[90vh] w-[95vw] max-w-4xl border-0 bg-primary-900/95 p-3 shadow-2xl sm:p-6">
           {activeImage && (
             <div className="flex flex-col gap-4">
-              <div className="relative h-[65vh] w-full overflow-hidden rounded-xl bg-primary-900">
+              <div className="relative h-[50vh] max-h-[500px] w-full overflow-hidden rounded-xl bg-primary-900">
                 <Image
                   src={activeImage.src}
                   alt={activeImage.alt}
                   fill
-                  sizes="100vw"
+                  sizes="(min-width: 1024px) 80vw, 95vw"
                   className="object-contain"
                   priority
                 />
