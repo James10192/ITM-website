@@ -1,57 +1,121 @@
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
-import {
-  IconClock,
-  IconRefresh,
-  IconTool,
-  IconHome,
-  IconUmbrella,
-} from '@tabler/icons-react'
+import { IconClock, IconRefresh, IconTool, IconHome, IconUmbrella } from '@tabler/icons-react'
 import { IBAK_BENEFITS } from '@/lib/constants/ibak-home'
 
 const BENEFIT_ICONS = {
   'construction-rapide': IconClock,
-  'deplacable': IconRefresh,
+  deplacable: IconRefresh,
   'faible-entretien': IconTool,
-  'architecture': IconHome,
-  'resistance': IconUmbrella,
+  architecture: IconHome,
+  resistance: IconUmbrella,
 } as const
 
 export function BenefitsGrid() {
-  return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-grey-50 via-white to-grey-100/60 py-2xl">
-      <div className="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full bg-accent-500/10 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-24 left-0 h-72 w-72 rounded-full bg-primary-800/10 blur-3xl" />
-      <div className="container-custom">
-        <h2 className="mb-xl text-center font-heading text-section-mobile font-bold text-primary-900 md:text-section">
-          Avantages clés
-        </h2>
+  const benefits = IBAK_BENEFITS.map(benefit => ({
+    ...benefit,
+    icon: BENEFIT_ICONS[benefit.id],
+  }))
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {IBAK_BENEFITS.map((benefit) => {
-            const Icon = BENEFIT_ICONS[benefit.id]
-            return (
-              <Card
-                key={benefit.id}
-                className="group relative overflow-hidden border-grey-200/70 bg-white/90 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.45)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-accent-500/60 hover:shadow-[0_24px_70px_-40px_rgba(15,23,42,0.65)]"
-              >
-                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-accent-500 via-primary-800 to-secondary-500" />
-                <CardHeader className="relative">
-                  <span className="text-[0.7rem] font-semibold uppercase tracking-[0.25em] text-secondary-500">
-                    IBAK HOME
-                  </span>
-                  <div className="mb-md mt-sm flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-900/95 ring-1 ring-white/10 shadow-inner transition duration-300 group-hover:scale-105">
-                    <Icon className="h-8 w-8 text-accent-500" stroke={1.5} />
-                  </div>
-                  <CardTitle className="text-primary-900">{benefit.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-body-mobile leading-relaxed text-secondary-700 md:text-body">
-                    {benefit.description}
-                  </p>
-                </CardContent>
-              </Card>
-            )
-          })}
+  return (
+    <section className="bg-white py-2xl">
+      <div className="container-custom">
+        <div className="mb-2xl">
+          <h2 className="font-heading text-section-mobile font-bold text-primary-900 md:text-section">
+            Pourquoi choisir IBAK HOME
+          </h2>
+          <p className="mt-md max-w-2xl text-body-mobile text-secondary-600 md:text-body">
+            Des solutions de construction métallique pensées pour l'excellence et la durabilité
+          </p>
+        </div>
+
+        {/* Bento Grid Layout */}
+        <div className="grid auto-rows-[240px] grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {/* Featured card - spans 2 columns */}
+          {benefits[0] && (
+            <div className="group relative overflow-hidden rounded-2xl border border-grey-200 bg-white p-8 shadow-sm transition-all hover:shadow-xl lg:col-span-2">
+              <div className="mb-6">
+                {(() => {
+                  const Icon = benefits[0].icon
+                  return <Icon className="h-12 w-12 text-primary-900" stroke={1.5} />
+                })()}
+              </div>
+              <h3 className="mb-3 font-heading text-2xl font-semibold text-primary-900">
+                {benefits[0].title}
+              </h3>
+              <p className="text-base leading-relaxed text-secondary-600">
+                {benefits[0].description}
+              </p>
+              <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-accent-500/5" />
+            </div>
+          )}
+
+          {/* Regular card */}
+          {benefits[1] && (
+            <div className="group relative overflow-hidden rounded-2xl border border-grey-200 bg-white p-8 shadow-sm transition-all hover:shadow-xl lg:col-span-1">
+              <div className="mb-6">
+                {(() => {
+                  const Icon = benefits[1].icon
+                  return <Icon className="h-10 w-10 text-primary-900" stroke={1.5} />
+                })()}
+              </div>
+              <h3 className="mb-3 font-heading text-xl font-semibold text-primary-900">
+                {benefits[1].title}
+              </h3>
+              <p className="text-sm leading-relaxed text-secondary-600">
+                {benefits[1].description}
+              </p>
+            </div>
+          )}
+
+          {/* Tall card - spans 2 rows */}
+          {benefits[2] && (
+            <div className="group relative overflow-hidden rounded-2xl border border-grey-200 bg-gradient-to-br from-primary-900 to-primary-800 p-8 text-white shadow-sm transition-all hover:shadow-xl lg:row-span-2">
+              <div className="mb-6">
+                {(() => {
+                  const Icon = benefits[2].icon
+                  return <Icon className="h-12 w-12 text-accent-500" stroke={1.5} />
+                })()}
+              </div>
+              <h3 className="mb-3 font-heading text-2xl font-semibold">{benefits[2].title}</h3>
+              <p className="text-base leading-relaxed text-grey-200">{benefits[2].description}</p>
+              <div className="absolute -bottom-12 -right-12 h-48 w-48 rounded-full bg-white/10" />
+            </div>
+          )}
+
+          {/* Regular card */}
+          {benefits[3] && (
+            <div className="group relative overflow-hidden rounded-2xl border border-grey-200 bg-white p-8 shadow-sm transition-all hover:shadow-xl lg:col-span-1">
+              <div className="mb-6">
+                {(() => {
+                  const Icon = benefits[3].icon
+                  return <Icon className="h-10 w-10 text-primary-900" stroke={1.5} />
+                })()}
+              </div>
+              <h3 className="mb-3 font-heading text-xl font-semibold text-primary-900">
+                {benefits[3].title}
+              </h3>
+              <p className="text-sm leading-relaxed text-secondary-600">
+                {benefits[3].description}
+              </p>
+            </div>
+          )}
+
+          {/* Wide card - spans 2 columns */}
+          {benefits[4] && (
+            <div className="group relative overflow-hidden rounded-2xl border border-grey-200 bg-white p-8 shadow-sm transition-all hover:shadow-xl lg:col-span-2">
+              <div className="mb-6">
+                {(() => {
+                  const Icon = benefits[4].icon
+                  return <Icon className="h-10 w-10 text-primary-900" stroke={1.5} />
+                })()}
+              </div>
+              <h3 className="mb-3 font-heading text-xl font-semibold text-primary-900">
+                {benefits[4].title}
+              </h3>
+              <p className="text-base leading-relaxed text-secondary-600">
+                {benefits[4].description}
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </section>

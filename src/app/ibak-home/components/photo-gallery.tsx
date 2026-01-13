@@ -65,26 +65,26 @@ export function PhotoGallery() {
           }
         }}
       >
-        <DialogContent className="max-h-[90vh] w-[95vw] max-w-4xl border-0 bg-primary-900/95 p-3 shadow-2xl sm:p-6">
+        <DialogContent className="h-auto max-h-[85vh] w-[90vw] max-w-3xl overflow-hidden border-0 bg-primary-900/95 p-4 shadow-2xl sm:p-6">
           {activeImage && (
-            <div className="flex flex-col gap-4">
-              <div className="relative h-[50vh] max-h-[500px] w-full overflow-hidden rounded-xl bg-primary-900">
+            <div className="flex h-full max-h-[calc(85vh-3rem)] flex-col gap-3 overflow-hidden">
+              <div className="relative h-[40vh] max-h-[400px] w-full flex-shrink-0 overflow-hidden rounded-xl bg-primary-900">
                 <Image
                   src={activeImage.src}
                   alt={activeImage.alt}
                   fill
-                  sizes="(min-width: 1024px) 80vw, 95vw"
+                  sizes="(min-width: 768px) 60vw, 85vw"
                   className="object-contain"
                   priority
                 />
               </div>
-              <div className="flex gap-3 overflow-x-auto pb-2">
+              <div className="flex flex-shrink-0 gap-2 overflow-x-auto pb-1">
                 {IBAK_HOME_IMAGES.map((image, index) => (
                   <button
                     key={image.src}
                     type="button"
                     onClick={() => setActiveIndex(index)}
-                    className={`relative h-20 w-32 flex-shrink-0 overflow-hidden rounded-lg ring-2 transition ${
+                    className={`relative h-16 w-24 flex-shrink-0 overflow-hidden rounded-md ring-2 transition ${
                       index === activeIndex
                         ? 'ring-accent-500'
                         : 'ring-white/20 hover:ring-white/60'
@@ -95,7 +95,7 @@ export function PhotoGallery() {
                       src={image.src}
                       alt={image.alt}
                       fill
-                      sizes="128px"
+                      sizes="96px"
                       className="object-cover"
                     />
                   </button>
