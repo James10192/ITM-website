@@ -1,5 +1,4 @@
 import { ShieldCheck, Clock, Eye, Handshake } from 'lucide-react'
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { COMMITMENTS } from '@/lib/constants/a-propos'
 
 const COMMITMENT_ICONS = {
@@ -13,36 +12,34 @@ export function CommitmentsSection() {
   return (
     <section className="bg-white py-2xl">
       <div className="container-custom">
-        <div className="mb-xl text-center">
+        <div className="mb-2xl">
           <h2 className="mb-md font-heading text-section-mobile font-bold text-primary-900 md:text-section">
             Nos engagements
           </h2>
-          <p className="mx-auto max-w-3xl text-body-mobile text-secondary-600 md:text-body">
+          <p className="max-w-2xl text-body-mobile text-secondary-600 md:text-body">
             Des valeurs fortes qui guident chaque projet et garantissent votre satisfaction
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-lg md:grid-cols-2 lg:grid-cols-4">
-          {COMMITMENTS.map((commitment) => {
+        <div className="grid grid-cols-1 gap-px bg-grey-200 md:grid-cols-2 lg:grid-cols-4">
+          {COMMITMENTS.map(commitment => {
             const Icon = COMMITMENT_ICONS[commitment.icon as keyof typeof COMMITMENT_ICONS]
 
             return (
-              <Card
+              <div
                 key={commitment.id}
-                className="border-grey-200 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+                className="hover:bg-grey-50 group bg-white p-xl transition-colors"
               >
-                <CardHeader>
-                  <div className="mb-md flex h-16 w-16 items-center justify-center rounded-full bg-primary-900">
-                    <Icon className="h-8 w-8 text-accent-500" strokeWidth={1.5} />
-                  </div>
-                  <CardTitle className="text-primary-900">{commitment.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-body-mobile leading-relaxed text-secondary-600 md:text-body">
-                    {commitment.description}
-                  </p>
-                </CardContent>
-              </Card>
+                <div className="mb-lg">
+                  <Icon className="h-10 w-10 text-primary-900" strokeWidth={1.5} />
+                </div>
+                <h3 className="mb-md font-heading text-h4-mobile font-semibold text-primary-900 md:text-h4">
+                  {commitment.title}
+                </h3>
+                <p className="text-body-mobile leading-relaxed text-secondary-600 md:text-body">
+                  {commitment.description}
+                </p>
+              </div>
             )
           })}
         </div>

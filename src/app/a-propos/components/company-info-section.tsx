@@ -1,5 +1,4 @@
 import { Building2, MapPin, Calendar, Briefcase } from 'lucide-react'
-import { Card, CardContent } from '@/components/ui/card'
 import Image from 'next/image'
 import { COMPANY_INFO } from '@/lib/constants/a-propos'
 
@@ -30,19 +29,19 @@ export function CompanyInfoSection() {
   return (
     <section className="bg-white py-2xl">
       <div className="container-custom">
-        <div className="mb-xl text-center">
+        <div className="mb-2xl">
           <h2 className="mb-md font-heading text-section-mobile font-bold text-primary-900 md:text-section">
             Notre Entreprise
           </h2>
-          <p className="mx-auto max-w-3xl text-body-mobile text-secondary-600 md:text-body">
+          <p className="max-w-2xl text-body-mobile text-secondary-600 md:text-body">
             {COMPANY_INFO.description}
           </p>
         </div>
 
         {/* Layout 2 colonnes: Photo + Cards */}
-        <div className="grid grid-cols-1 gap-xl lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           {/* Colonne gauche: Photo */}
-          <div className="relative h-[400px] overflow-hidden rounded-lg lg:h-[600px]">
+          <div className="relative h-[400px] overflow-hidden rounded-2xl lg:h-[600px]">
             <Image
               src="/images/projects/structure-metallique-01.png"
               alt="ITM Construction Métallique - Structure métallique"
@@ -50,39 +49,26 @@ export function CompanyInfoSection() {
               className="object-cover"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary-900/80 via-primary-900/20 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-lg">
-              <h3 className="font-heading text-h4 font-bold text-white">
-                {COMPANY_INFO.name}
-              </h3>
-              <p className="text-body-mobile text-grey-200">
-                {COMPANY_INFO.location}
-              </p>
-            </div>
           </div>
 
           {/* Colonne droite: Cards d'informations */}
-          <div className="grid grid-cols-1 gap-lg sm:grid-cols-2">
-            {INFO_ITEMS.map((item) => {
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {INFO_ITEMS.map(item => {
               const Icon = item.icon
 
               return (
-                <Card
+                <div
                   key={item.label}
-                  className="border-grey-200 bg-off-white shadow-md transition-all duration-300 hover:shadow-xl"
+                  className="hover:bg-grey-50 rounded-2xl border border-grey-200 bg-white p-6 transition-colors"
                 >
-                  <CardContent className="p-lg">
-                    <div className="mb-md flex h-14 w-14 items-center justify-center rounded-full bg-primary-900">
-                      <Icon className="h-7 w-7 text-accent-500" strokeWidth={1.5} />
-                    </div>
-                    <h3 className="mb-sm font-heading text-h4-mobile font-semibold text-primary-900">
-                      {item.label}
-                    </h3>
-                    <p className="text-body-mobile leading-relaxed text-secondary-600">
-                      {item.value}
-                    </p>
-                  </CardContent>
-                </Card>
+                  <div className="mb-4">
+                    <Icon className="h-8 w-8 text-primary-900" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="mb-2 text-sm font-medium text-secondary-600">{item.label}</h3>
+                  <p className="font-heading text-lg font-semibold text-primary-900">
+                    {item.value}
+                  </p>
+                </div>
               )
             })}
           </div>
