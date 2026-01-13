@@ -7,11 +7,18 @@ export interface Project {
   id: string
   title: string
   category: Exclude<ProjectCategory, 'all'>
-  location: string
   clientObjective: string
   image: string
   featured?: boolean
 }
+
+export const REALISATIONS_HEADER_IMAGES = [
+  '/images/realisations/31047.jpg',
+  '/images/realisations/31004.jpg',
+  '/images/realisations/31036.jpg',
+  '/images/realisations/31021.jpg',
+  '/images/realisations/31031.jpg',
+]
 
 export const PROJECT_CATEGORIES: Array<{
   id: ProjectCategory
@@ -28,147 +35,187 @@ export const PROJECT_CATEGORIES: Array<{
 export const PROJECTS: Project[] = [
   // Maisons métalliques
   {
-    id: 'maison-cocody-01',
-    title: 'Villa Moderne IBAK HOME',
+    id: 'structure-metallique-01',
+    title: 'Structure métallique de bâtiment',
     category: 'maisons',
-    location: 'Cocody, Abidjan',
     clientObjective:
-      'Résidence principale familiale moderne avec possibilité de relocalisation future.',
-    image: '/images/projects/maison-moderne-01.jpg',
+      'Mettre en place une ossature robuste pour un projet de construction métallique.',
+    image: '/images/realisations/31036.jpg',
     featured: true,
   },
   {
-    id: 'maison-bingerville-01',
-    title: 'Maison Modulaire 3 Chambres',
+    id: 'structure-metallique-02',
+    title: 'Plancher métallique en montage',
     category: 'maisons',
-    location: 'Bingerville',
     clientObjective:
-      'Investissement locatif avec structure déplaçable pour terrain temporaire.',
-    image: '/images/projects/maison-moderne-01.jpg',
+      'Assembler une plateforme métallique stable pour accueillir les futurs aménagements.',
+    image: '/images/realisations/31043.jpg',
   },
   {
-    id: 'maison-grand-bassam-01',
-    title: 'Résidence Secondaire Bord de Mer',
+    id: 'structure-metallique-03',
+    title: 'Structure surélevée avec escalier',
     category: 'maisons',
-    location: 'Grand-Bassam',
-    clientObjective: 'Maison de vacances résistante à l\'humidité et au sel marin.',
-    image: '/images/projects/maison-moderne-01.jpg',
+    clientObjective:
+      'Concevoir une plateforme métallique fonctionnelle et durable pour activité commerciale.',
+    image: '/images/realisations/31035.jpg',
+  },
+  {
+    id: 'structure-metallique-04',
+    title: 'Pergolas métalliques contemporaines',
+    category: 'maisons',
+    clientObjective:
+      'Créer des espaces extérieurs ombragés avec une signature architecturale métallique.',
+    image: '/images/realisations/31014.jpg',
   },
 
   // Portes et portails
   {
-    id: 'portail-plateau-01',
-    title: 'Portail Automatique Entreprise',
+    id: 'portail-decoratif-01',
+    title: 'Portail décoratif à motifs floraux',
     category: 'portes',
-    location: 'Plateau, Abidjan',
-    clientObjective:
-      'Sécuriser l\'entrée de locaux professionnels avec design élégant et système automatisé.',
-    image: '/images/projects/structure-metallique-01.png',
+    clientObjective: 'Allier sécurité et esthétique avec un portail sur mesure.',
+    image: '/images/realisations/31004.jpg',
     featured: true,
   },
   {
-    id: 'porte-cocody-01',
-    title: 'Portes Sécurisées Résidence',
+    id: 'portail-coulissant-01',
+    title: 'Portail coulissant décoratif',
     category: 'portes',
-    location: 'Cocody Riviera',
-    clientObjective: 'Renforcer la sécurité d\'une villa avec portes blindées sur mesure.',
-    image: '/images/projects/structure-metallique-01.png',
+    clientObjective: 'Installer une fermeture coulissante avec découpe organique.',
+    image: '/images/realisations/31005.jpg',
   },
   {
-    id: 'portail-marcory-01',
-    title: 'Portail Coulissant Automatique',
+    id: 'porte-pieton-01',
+    title: 'Porte piétonne sécurisée',
     category: 'portes',
-    location: 'Marcory',
-    clientObjective:
-      'Installation de portail coulissant pour faciliter l\'accès à une propriété.',
-    image: '/images/projects/structure-metallique-01.png',
+    clientObjective: 'Renforcer l\'accès avec une porte métallique résistante.',
+    image: '/images/realisations/31006.jpg',
+  },
+  {
+    id: 'porte-coulissante-01',
+    title: 'Panneaux coulissants ajourés',
+    category: 'portes',
+    clientObjective: 'Optimiser la circulation tout en gardant la ventilation naturelle.',
+    image: '/images/realisations/31008.jpg',
+  },
+  {
+    id: 'porte-geometrique-01',
+    title: 'Porte métallique géométrique',
+    category: 'portes',
+    clientObjective: 'Installer une porte design avec découpe artistique.',
+    image: '/images/realisations/31046.jpg',
+  },
+  {
+    id: 'portail-plein-01',
+    title: 'Portail plein contemporain',
+    category: 'portes',
+    clientObjective: 'Proposer un portail moderne et épuré pour entrée principale.',
+    image: '/images/realisations/31047.jpg',
   },
 
   // Palissades et clôtures
   {
-    id: 'palissade-yopougon-01',
-    title: 'Clôture Métallique Sécurisée',
+    id: 'garde-corps-01',
+    title: 'Garde-corps décoratif extérieur',
     category: 'palissades',
-    location: 'Yopougon',
     clientObjective:
-      'Sécuriser un terrain de 500m² avec clôture métallique résistante et esthétique.',
-    image: '/images/projects/chantier-construction-01.png',
+      'Sécuriser les balcons avec des motifs perforés élégants.',
+    image: '/images/realisations/31021.jpg',
     featured: true,
   },
   {
-    id: 'palissade-abobo-01',
-    title: 'Palissade Entreprise 200m',
+    id: 'garde-corps-02',
+    title: 'Garde-corps motif feuilles',
     category: 'palissades',
-    location: 'Abobo',
-    clientObjective: 'Délimiter et sécuriser un site industriel avec palissade hauteur 3m.',
-    image: '/images/projects/chantier-construction-01.png',
+    clientObjective: 'Apporter un motif végétal sur des balcons contemporains.',
+    image: '/images/realisations/31028.jpg',
   },
   {
-    id: 'palissade-bingerville-01',
-    title: 'Clôture Résidentielle Moderne',
+    id: 'garde-corps-03',
+    title: 'Rampe d\'escalier découpée',
     category: 'palissades',
-    location: 'Bingerville',
     clientObjective:
-      'Allier sécurité et esthétique pour une résidence haut de gamme.',
-    image: '/images/projects/chantier-construction-01.png',
+      'Sécuriser un escalier avec un garde-corps artistique sur mesure.',
+    image: '/images/realisations/31029.jpg',
+  },
+  {
+    id: 'garde-corps-04',
+    title: 'Garde-corps de terrasse ajouré',
+    category: 'palissades',
+    clientObjective: 'Combiner sécurité et vue dégagée pour un balcon.',
+    image: '/images/realisations/31030.jpg',
+  },
+  {
+    id: 'garde-corps-05',
+    title: 'Façade avec garde-corps métalliques',
+    category: 'palissades',
+    clientObjective: 'Habiller la façade avec une signature métallique cohérente.',
+    image: '/images/realisations/31032.jpg',
+  },
+  {
+    id: 'garde-corps-06',
+    title: 'Balconnerie géométrique',
+    category: 'palissades',
+    clientObjective: 'Créer un rythme graphique sur une façade moderne.',
+    image: '/images/realisations/31033.jpg',
+  },
+  {
+    id: 'garde-corps-07',
+    title: 'Balconnerie découpée sur mesure',
+    category: 'palissades',
+    clientObjective: 'Apporter du caractère aux balcons avec un motif ajouré.',
+    image: '/images/realisations/31034.jpg',
+  },
+  {
+    id: 'garde-corps-08',
+    title: 'Garde-corps extérieur design',
+    category: 'palissades',
+    clientObjective: 'Sécuriser une terrasse avec un motif métallique fort.',
+    image: '/images/realisations/31045.jpg',
+  },
+  {
+    id: 'claustra-01',
+    title: 'Claustra extérieur graphique',
+    category: 'palissades',
+    clientObjective: 'Créer une séparation ajourée pour patio et terrasse.',
+    image: '/images/realisations/30955.jpg',
+  },
+  {
+    id: 'pergola-01',
+    title: 'Pergola ajourée de nuit',
+    category: 'palissades',
+    clientObjective: 'Installer un habillage métallique ajouré pour espace extérieur.',
+    image: '/images/realisations/30962.jpg',
   },
 
   // Mobilier métallique
   {
-    id: 'mobilier-plateau-01',
-    title: 'Mobilier de Bureau Sur Mesure',
+    id: 'mobilier-claustra-01',
+    title: 'Claustra intérieur décoratif',
     category: 'meubles',
-    location: 'Plateau, Abidjan',
-    clientObjective:
-      'Équiper des bureaux avec mobilier métallique design et durable.',
-    image: '/images/projects/construction-metallique-01.jpg',
+    clientObjective: 'Habiller un intérieur avec une signature métallique artistique.',
+    image: '/images/realisations/30953.jpg',
   },
   {
-    id: 'mobilier-cocody-01',
-    title: 'Étagères et Rangements Industriels',
+    id: 'mobilier-claustra-02',
+    title: 'Habillage métallique ajouré',
     category: 'meubles',
-    location: 'Cocody',
-    clientObjective:
-      'Optimiser l\'espace de stockage avec meubles métalliques robustes.',
-    image: '/images/projects/construction-metallique-01.jpg',
+    clientObjective: 'Apporter une touche contemporaine à un espace intérieur.',
+    image: '/images/realisations/30954.jpg',
   },
   {
-    id: 'mobilier-marcory-01',
-    title: 'Mobilier Extérieur Terrasse',
+    id: 'mobilier-bar-01',
+    title: 'Comptoir métallique rétroéclairé',
     category: 'meubles',
-    location: 'Marcory Zone 4',
-    clientObjective:
-      'Créer un espace extérieur convivial avec mobilier résistant aux intempéries.',
-    image: '/images/projects/construction-metallique-01.jpg',
-  },
-
-  // Projets supplémentaires pour une belle galerie
-  {
-    id: 'maison-anyama-01',
-    title: 'Maison Économique IBAK',
-    category: 'maisons',
-    location: 'Anyama',
-    clientObjective:
-      'Première acquisition immobilière avec budget maîtrisé et construction rapide.',
-    image: '/images/projects/maison-moderne-01.jpg',
+    clientObjective: 'Créer un bar signature avec une façade métallique lumineuse.',
+    image: '/images/realisations/31031.jpg',
   },
   {
-    id: 'portail-angre-01',
-    title: 'Portail Battant Double Vantaux',
-    category: 'portes',
-    location: 'Angré 8ème Tranche',
-    clientObjective:
-      'Portail élégant pour villa moderne avec finition peinture époxy.',
-    image: '/images/projects/structure-metallique-01.png',
-  },
-  {
-    id: 'palissade-riviera-01',
-    title: 'Palissade Décorative Résidence',
-    category: 'palissades',
-    location: 'Riviera Palmeraie',
-    clientObjective:
-      'Clôture design associant sécurité et transparence pour jardin visible.',
-    image: '/images/projects/chantier-construction-01.png',
+    id: 'mobilier-chaises-01',
+    title: 'Chaises métalliques design',
+    category: 'meubles',
+    clientObjective: 'Fabriquer un mobilier élégant et robuste pour espace intérieur.',
+    image: '/images/realisations/31044.jpg',
   },
 ]
 

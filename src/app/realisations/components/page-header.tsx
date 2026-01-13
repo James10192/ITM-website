@@ -1,19 +1,32 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { IconChevronRight } from '@tabler/icons-react'
+import { REALISATIONS_HEADER_IMAGES } from '@/lib/constants/realisations'
+import styles from './page-header.module.css'
 
 export function PageHeader() {
+  const slideDurationSeconds = 4
+  const totalDurationSeconds = REALISATIONS_HEADER_IMAGES.length * slideDurationSeconds
+
   return (
     <section className="relative bg-primary-900 py-xl md:py-2xl">
-      {/* Background image avec overlay */}
+      {/* Background carousel avec overlay */}
       <div className="absolute inset-0">
-        <Image
-          src="/images/projects/structure-metallique-01.png"
-          alt=""
-          fill
-          className="object-cover opacity-10"
-          priority
-        />
+        {REALISATIONS_HEADER_IMAGES.map((image, index) => (
+          <Image
+            key={image}
+            src={image}
+            alt=""
+            fill
+            className={`${styles.heroSlide} object-cover opacity-90`}
+            priority={index === 0}
+            sizes="100vw"
+            style={{
+              animationDelay: `${index * slideDurationSeconds}s`,
+              animationDuration: `${totalDurationSeconds}s`,
+            }}
+          />
+        ))}
       </div>
 
       {/* Gradient overlay pour plus de profondeur */}

@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { MapPin, Target } from 'lucide-react'
+import { Target } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Project, PROJECT_CATEGORIES } from '@/lib/constants/realisations'
 import { Card, CardContent } from '@/components/ui/card'
@@ -49,12 +49,6 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           <h3 className="mb-3 font-heading text-h4-mobile font-semibold text-primary-900 md:text-h4">
             {project.title}
           </h3>
-
-          {/* Lieu */}
-          <div className="mb-4 flex items-start gap-2">
-            <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent-500" />
-            <p className="text-sm font-medium text-secondary-600">{project.location}</p>
-          </div>
 
           {/* Objectif client */}
           <div className="flex items-start gap-2">
