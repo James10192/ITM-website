@@ -21,13 +21,22 @@ export function WhyMetalSection() {
             Le traitement anticorrosion garantit une protection optimale contre la rouille et
             la dégradation, même en climat côtier.
           </p>
-          <img
-            src="/images/benefits/resistance-intemperies-01.jpg"
-            alt="Structure métallique ITM résistante aux intempéries tropicales"
-            width={800}
-            height={500}
-            className={IMG_CLASS}
-          />
+          <div className="grid grid-cols-2 gap-4">
+            <img
+              src="/images/benefits/resistance-intemperies-01.jpg"
+              alt="Structure métallique ITM résistante aux intempéries tropicales"
+              width={500}
+              height={500}
+              className={IMG_CLASS}
+            />
+            <img
+              src="/images/benefits/resistance-intemperies-02.jpg"
+              alt="Traitement anticorrosion sur charpente métallique ITM"
+              width={500}
+              height={500}
+              className={IMG_CLASS}
+            />
+          </div>
         </div>
       ),
     },
@@ -44,13 +53,22 @@ export function WhyMetalSection() {
             métalliques conservent leur intégrité structurelle pendant 50 ans et plus avec un
             entretien minimal.
           </p>
-          <img
-            src="/images/benefits/longevite-01.jpg"
-            alt="Bâtiment métallique durable construit par ITM"
-            width={800}
-            height={500}
-            className={IMG_CLASS}
-          />
+          <div className="grid grid-cols-2 gap-4">
+            <img
+              src="/images/benefits/longevite-01.jpg"
+              alt="Bâtiment métallique durable construit par ITM"
+              width={500}
+              height={500}
+              className={IMG_CLASS}
+            />
+            <img
+              src="/images/benefits/longevite-02.jpg"
+              alt="Structure métallique ITM après plusieurs années d'utilisation"
+              width={500}
+              height={500}
+              className={IMG_CLASS}
+            />
+          </div>
         </div>
       ),
     },
@@ -62,7 +80,7 @@ export function WhyMetalSection() {
             Rapidité de construction
           </p>
           <p className="mb-4 font-sans text-body-mobile leading-relaxed text-secondary-600 md:text-body dark:text-neutral-200">
-            Gagnez un temps précieux avec nos méthodes de construction modulaires. Délais
+            Gagnez un temps précieux avec nos méthodes de construction. Délais
             réduits de 40 à 60% par rapport aux constructions traditionnelles.
           </p>
           <div className="mb-8 space-y-2">
@@ -87,13 +105,22 @@ export function WhyMetalSection() {
               <span>Installation possible toute l&apos;année, même en saison des pluies</span>
             </div>
           </div>
-          <img
-            src="/images/benefits/rapidite-construction-01.jpg"
-            alt="Montage rapide d'une structure métallique ITM sur chantier"
-            width={800}
-            height={500}
-            className={IMG_CLASS}
-          />
+          <div className="grid grid-cols-2 gap-4">
+            <img
+              src="/images/benefits/rapidite-construction-01.jpg"
+              alt="Montage rapide d'une structure métallique ITM sur chantier"
+              width={500}
+              height={500}
+              className={IMG_CLASS}
+            />
+            <img
+              src="/images/benefits/rapidite-construction-02.jpg"
+              alt="Chantier de construction métallique ITM en cours d'assemblage"
+              width={500}
+              height={500}
+              className={IMG_CLASS}
+            />
+          </div>
         </div>
       ),
     },
@@ -110,13 +137,22 @@ export function WhyMetalSection() {
             votre propriété. Finitions personnalisables : peinture, bardage, vitrages...
             créez l&apos;ambiance qui vous ressemble.
           </p>
-          <img
-            src="/images/benefits/esthetique-moderne-01.jpg"
-            alt="Design moderne d'une construction métallique ITM"
-            width={800}
-            height={500}
-            className={IMG_CLASS}
-          />
+          <div className="grid grid-cols-2 gap-4">
+            <img
+              src="/images/benefits/esthetique-moderne-01.jpg"
+              alt="Design moderne d'une construction métallique ITM"
+              width={500}
+              height={500}
+              className={IMG_CLASS}
+            />
+            <img
+              src="/images/benefits/esthetique-moderne-02.jpg"
+              alt="Architecture métallique contemporaine réalisée par ITM"
+              width={500}
+              height={500}
+              className={IMG_CLASS}
+            />
+          </div>
         </div>
       ),
     },
@@ -133,13 +169,22 @@ export function WhyMetalSection() {
             main d&apos;œuvre), sur l&apos;entretien (matériau durable nécessitant peu d&apos;interventions).
             Valeur de revente supérieure grâce à la qualité et la modernité de la construction.
           </p>
-          <img
-            src="/images/benefits/investissement-rentable-01.jpg"
-            alt="Rentabilité et économies d'une construction métallique ITM"
-            width={800}
-            height={500}
-            className={IMG_CLASS}
-          />
+          <div className="grid grid-cols-2 gap-4">
+            <img
+              src="/images/benefits/investissement-rentable-01.jpg"
+              alt="Rentabilité et économies d'une construction métallique ITM"
+              width={500}
+              height={500}
+              className={IMG_CLASS}
+            />
+            <img
+              src="/images/benefits/investissement-rentable-02.jpg"
+              alt="Valeur patrimoniale d'une construction métallique ITM"
+              width={500}
+              height={500}
+              className={IMG_CLASS}
+            />
+          </div>
         </div>
       ),
     },

@@ -5,12 +5,6 @@ import Link from 'next/link'
 import { motion, type Variants } from 'framer-motion'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 
-const STATS = [
-  { value: '100+', label: 'Projets livrés' },
-  { value: '4 ans', label: "D'expertise" },
-  { value: '100%', label: 'Engagement qualité' },
-]
-
 const STRENGTHS = [
   'Ingénieurs et techniciens qualifiés sur chaque chantier',
   'Fabrication en atelier, installation rapide sur site',
@@ -113,8 +107,9 @@ export function SocialProofSection() {
               variants={fadeUp}
             >
               Chaque projet commence par votre vision. Nos ingénieurs, soudeurs et techniciens
-              qualifiés la transforment en réalité — avec précision, dans les délais et au meilleur
-              standard de qualité.
+              qualifiés la transforment en réalité, avec précision, dans les délais et au meilleur
+              standard de qualité. Structures fixes ou modulaires, nous construisons ce dont vous
+              avez besoin.
             </motion.p>
 
             {/* Points forts */}
@@ -134,31 +129,12 @@ export function SocialProofSection() {
               ))}
             </motion.ul>
 
-            {/* Stats */}
-            <motion.div
-              className="mb-xl grid grid-cols-3 gap-sm border-t border-white/10 pt-lg"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              custom={5}
-              variants={fadeUp}
-            >
-              {STATS.map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <p className="font-heading text-subsection-mobile font-bold text-accent-500 md:text-subsection">
-                    {stat.value}
-                  </p>
-                  <p className="mt-1 text-xs leading-tight text-grey-200">{stat.label}</p>
-                </div>
-              ))}
-            </motion.div>
-
             {/* CTA */}
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
-              custom={6}
+              custom={5}
               variants={fadeUp}
             >
               <Link

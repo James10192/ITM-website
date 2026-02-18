@@ -41,12 +41,9 @@ export function PageHeader() {
 
         {/* Page Title */}
         <div className="max-w-4xl">
-          <h1 className="mb-md font-heading text-section-mobile font-bold text-white md:text-section lg:text-hero-mobile">
+          <h1 className="font-heading text-section-mobile font-bold text-white md:text-section lg:text-hero-mobile">
             {COMPANY_INFO.tagline}
           </h1>
-          <p className="text-body-mobile leading-relaxed text-grey-200 md:text-body">
-            {COMPANY_INFO.description}
-          </p>
         </div>
       </div>
     </section>
