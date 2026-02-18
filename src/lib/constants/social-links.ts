@@ -18,6 +18,12 @@ export const socialLinks: SocialLink[] = [
     label: 'Suivez-nous sur Facebook - ITM',
   },
   {
+    name: 'TikTok',
+    url: 'https://www.tiktok.com/@benazizkonate1',
+    icon: 'TikTok',
+    label: 'Suivez-nous sur TikTok - ITM',
+  },
+  {
     name: 'WhatsApp',
     url: 'https://wa.me/2250777589211',
     icon: 'MessageCircle',
@@ -32,9 +38,12 @@ export const socialLinks: SocialLink[] = [
 export const contactInfo = {
   phone: '+225 07 77 58 92 11',
   phoneRaw: '+2250777589211', // For tel: links
+  phone2: '+225 07 11 05 06 19',
+  phone2Raw: '+2250711050619', // For tel: links
   email: 'itmcotedivoire@gmail.com',
   address: 'Abidjan, Côte d\'Ivoire',
   whatsapp: 'https://wa.me/2250777589211',
+  whatsapp2: 'https://wa.me/2250711050619',
 }
 
 /**

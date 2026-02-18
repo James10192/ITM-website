@@ -44,7 +44,7 @@ export const COMPANY_INFO = {
   fullName: 'Industrie de Transformation Métallique SARL (I.T.M SARL)',
   tagline: 'Une expertise métallique au service de projets ambitieux',
   description:
-    'ITM Construction Métallique est une entreprise ivoirienne spécialisée dans la conception et la construction de structures métalliques sur mesure. Nous accompagnons des particuliers et des entreprises dans la réalisation de projets durables, esthétiques et fonctionnels.',
+    'ITM est une entreprise spécialisée dans la construction et la transformation métallique. Elle conçoit, fabrique et installe des structures métalliques adaptées aux besoins des professionnels, notamment dans les secteurs industriel, commercial et du bâtiment. Grâce à son savoir-faire technique, à la qualité de ses matériaux et au respect des délais, ITM accompagne ses clients à chaque étape de leurs projets, de l\'étude à la réalisation. L\'entreprise met un point d\'honneur à proposer des solutions solides, fiables et durables, tout en garantissant sécurité, esthétique et performance.',
   location: 'Abidjan, Bingerville',
   fullAddress: 'Abidjan, Bingerville, SEBIA YAO, Lot 88, Ilot 18',
   foundedYear: 2021,
