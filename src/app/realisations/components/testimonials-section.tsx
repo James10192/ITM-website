@@ -1,11 +1,8 @@
 'use client'
 
-import { ExternalLink, Quote } from 'lucide-react'
+import { ExternalLink, Quote, Play } from 'lucide-react'
 
-const FACEBOOK_PAGE_URL = 'https://www.facebook.com/share/r/1DFwGM5mNo/'
-
-const FACEBOOK_VIDEO_EMBED_URL =
-  'https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fr%2F1DFwGM5mNo%2F&show_text=false&width=560'
+const FACEBOOK_VIDEO_URL = 'https://www.facebook.com/share/r/1DFwGM5mNo/'
 
 const TESTIMONIALS = [
   {
@@ -13,7 +10,7 @@ const TESTIMONIALS = [
     name: 'M. Kouassi Jean-Marc',
     role: 'Particulier — Abidjan, Cocody',
     quote:
-      'ITM a transformé notre vision en réalité. Le portail et la clôture sont d\'une qualité irréprochable, livrés dans les délais convenus. Je recommande sans hésitation.',
+      "ITM a transformé notre vision en réalité. Le portail et la clôture sont d'une qualité irréprochable, livrés dans les délais convenus. Je recommande sans hésitation.",
     initial: 'K',
   },
   {
@@ -21,16 +18,8 @@ const TESTIMONIALS = [
     name: 'Mme Diallo Aminata',
     role: 'Promoteur immobilier',
     quote:
-      'Partenaire de confiance depuis deux ans. La rigueur technique et le professionnalisme de l\'équipe ITM font toute la différence sur nos chantiers.',
+      "Partenaire de confiance depuis deux ans. La rigueur technique et le professionnalisme de l'équipe ITM font toute la différence sur nos chantiers.",
     initial: 'D',
-  },
-  {
-    id: 'testimonial-3',
-    name: 'Direction Générale',
-    role: 'Entreprise industrielle',
-    quote:
-      'Des structures robustes, une esthétique soignée, et un accompagnement de bout en bout. ITM comprend les exigences du secteur professionnel.',
-    initial: 'E',
   },
 ]
 
@@ -71,7 +60,13 @@ export function TestimonialsSection() {
 
           {/* Bloc vidéo — 3 colonnes sur 5 */}
           <div className="lg:col-span-3">
-            <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm">
+            <a
+              href={FACEBOOK_VIDEO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative block overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:border-accent-500/40 hover:bg-white/10"
+              aria-label="Regarder le témoignage client ITM sur Facebook"
+            >
               {/* Label */}
               <div className="absolute left-md top-md z-10 flex items-center gap-xs rounded-full bg-accent-500/90 px-sm py-1 backdrop-blur-sm">
                 <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-white" />
@@ -80,36 +75,45 @@ export function TestimonialsSection() {
                 </span>
               </div>
 
-              {/* iFrame embed Facebook */}
-              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                <iframe
-                  src={FACEBOOK_VIDEO_EMBED_URL}
-                  className="absolute inset-0 h-full w-full"
-                  style={{ border: 'none', overflow: 'hidden' }}
-                  scrolling="no"
-                  frameBorder="0"
-                  allowFullScreen
-                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                  title="Témoignage client ITM Construction Métallique"
-                />
+              {/* Vignette de lecture */}
+              <div className="relative flex aspect-video w-full flex-col items-center justify-center gap-md bg-gradient-to-br from-primary-800 to-primary-900">
+                {/* Cercle play */}
+                <div className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-white/30 bg-white/10 transition-all duration-300 group-hover:scale-110 group-hover:border-accent-500 group-hover:bg-accent-500/20">
+                  <Play
+                    className="h-8 w-8 translate-x-0.5 text-white transition-colors group-hover:text-accent-500"
+                    fill="currentColor"
+                    strokeWidth={0}
+                  />
+                </div>
+
+                <div className="text-center">
+                  <p className="font-heading text-h4-mobile font-semibold text-white">
+                    Regarder le témoignage
+                  </p>
+                  <p className="mt-1 text-small text-grey-200">Vidéo disponible sur Facebook</p>
+                </div>
               </div>
 
-              {/* Lien de secours */}
+              {/* Pied de carte */}
               <div className="flex items-center justify-between border-t border-white/10 px-lg py-md">
-                <p className="text-small text-grey-200">
-                  Problème d&apos;affichage ?
-                </p>
-                <a
-                  href={FACEBOOK_PAGE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-xs rounded-lg border border-white/20 px-md py-sm text-small font-medium text-white transition-all hover:border-accent-500 hover:text-accent-500"
-                >
+                <div className="flex items-center gap-xs">
+                  {/* Icône Facebook inline */}
+                  <svg
+                    className="h-4 w-4 text-grey-200"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                  <span className="text-small text-grey-200">ITM Construction Métallique</span>
+                </div>
+                <span className="inline-flex items-center gap-xs text-small font-medium text-white transition-colors group-hover:text-accent-500">
                   <ExternalLink className="h-4 w-4" />
-                  Voir la vidéo
-                </a>
+                  Voir sur Facebook
+                </span>
               </div>
-            </div>
+            </a>
           </div>
 
           {/* Cards témoignages textuels — 2 colonnes sur 5 */}
