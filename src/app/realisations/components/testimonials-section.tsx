@@ -78,7 +78,7 @@ export function TestimonialsSection() {
               {/* Vignette de lecture */}
               <div className="relative flex aspect-video w-full flex-col items-center justify-center gap-md bg-gradient-to-br from-primary-800 to-primary-900">
                 {/* Cercle play */}
-                <div className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-white/30 bg-white/10 transition-all duration-300 group-hover:scale-110 group-hover:border-accent-500 group-hover:bg-accent-500/20">
+                <div className="pointer-events-none flex h-20 w-20 items-center justify-center rounded-full border-2 border-white/30 bg-white/10 transition-all duration-300 group-hover:scale-110 group-hover:border-accent-500 group-hover:bg-accent-500/20">
                   <Play
                     className="h-8 w-8 translate-x-0.5 text-white transition-colors group-hover:text-accent-500"
                     fill="currentColor"
