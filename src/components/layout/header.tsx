@@ -59,7 +59,7 @@ export function Header() {
             {/* Navigation Items with Active State */}
             <div
               onMouseLeave={() => setHovered(null)}
-              className="absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-1 text-sm font-medium lg:flex xl:space-x-2"
+              className="pointer-events-none absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-1 text-sm font-medium lg:flex xl:space-x-2"
             >
               {navItems.map((item, idx) => (
                 <Link
@@ -67,7 +67,7 @@ export function Header() {
                   href={item.link}
                   onMouseEnter={() => setHovered(idx)}
                   className={cn(
-                    'relative px-3 py-2 transition-colors duration-300 xl:px-4',
+                    'pointer-events-auto relative px-3 py-2 transition-colors duration-300 xl:px-4',
                     pathname === item.link
                       ? visible
                         ? 'text-primary-900'

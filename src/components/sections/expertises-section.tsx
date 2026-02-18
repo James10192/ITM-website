@@ -42,7 +42,7 @@ export function ExpertisesSection() {
                   </p>
 
                   {/* CTA Link */}
-                  <div className="flex items-center gap-2 text-sm font-medium text-primary-900 transition-colors group-hover:text-accent-500">
+                  <div className="flex items-center gap-2 text-sm font-medium text-primary-900 transition-colors group-hover:text-accent-700">
                     <span>En savoir plus</span>
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </div>

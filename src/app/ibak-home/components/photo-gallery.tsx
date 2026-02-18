@@ -29,7 +29,7 @@ export function PhotoGallery() {
     <section className="bg-white py-2xl">
       <div className="container-custom">
         <div className="mb-xl max-w-2xl">
-          <p className="mb-sm text-small font-semibold uppercase tracking-[0.2em] text-accent-500">
+          <p className="mb-sm text-small font-semibold uppercase tracking-[0.2em] text-accent-700">
             Galerie IBAK HOME
           </p>
           <h2 className="font-heading text-section-mobile font-bold text-primary-900 md:text-section">
