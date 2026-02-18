@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { PageHeader } from './components/page-header'
 import { ProjectsGallery } from './components/projects-gallery'
+import { BeforeAfterSection } from './components/before-after-section'
 import { TestimonialsSection } from './components/testimonials-section'
 
 // ISR: Revalidate every 60 seconds
@@ -75,6 +76,7 @@ export default function RealisationsPage() {
       {/* Page Sections */}
       <PageHeader />
       <ProjectsGallery />
+      <BeforeAfterSection />
       <TestimonialsSection />
     </>
   )
